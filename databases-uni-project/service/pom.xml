@@ -5,14 +5,13 @@
     <parent>
         <groupId>oalex.uni.databases</groupId>
         <artifactId>databases-uni-project</artifactId>
-        <version>${project.version}</version>
+        <version>1.0-SNAPSHOT</version>
     </parent>
     <groupId>oalex.uni.databases</groupId>
     <artifactId>service</artifactId>
-    <version>${project.version}</version>
+    <version>1.0-SNAPSHOT</version>
     <name>service</name>
-    <url>http://maven.apache.org</url>
-    
+
     <dependencies>
         <dependency>
             <groupId>junit</groupId>

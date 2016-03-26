@@ -4,9 +4,8 @@
     <groupId>oalex.uni.databases</groupId>
     <artifactId>databases-uni-project</artifactId>
     <packaging>pom</packaging>
-    <version>${project.version}</version>
+    <version>1.0-SNAPSHOT</version>
     <name>databases-uni-project</name>
-    <url>http://maven.apache.org</url>
 
     <modules>
         <module>dao</module>
@@ -15,9 +14,9 @@
     </modules>
 
     <properties>
-        <org.hibernate.version>4.3.8.Final</org.hibernate.version>
+        <org.hibernate.version>5.1.0.Final</org.hibernate.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <org.springframework.version>4.1.4.RELEASE</org.springframework.version>
+        <org.springframework.version>4.2.5.RELEASE</org.springframework.version>
         <project.version>1.0-SNAPSHOT</project.version>
     </properties>
 
