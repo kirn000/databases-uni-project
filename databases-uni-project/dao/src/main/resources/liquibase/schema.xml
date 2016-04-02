@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
+    <changeSet id="1" author="oalieksienko" >
+        <createTable tableName="user">
+            <column name="id" autoIncrement="true" type="bigint(19)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="login" type="varchar(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="varchar(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="privilege" type="varchar(40)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="oalieksienko" >
+        <createTable tableName="employer">
+            <column name="id" autoIncrement="true" type="bigint(19)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="contact_person" type="varchar(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="tel" type="varchar(15)" />
+            <column name="email" type="varchar(30)" />
+            <column name="address" type="varchar(60)" />
+            <column name="city" type="varchar(20)" />
+            <column name="country" type="varchar(20)" />
+            <column name="description" type="varchar(5000)" />
+            <column name="user_id" type="bigint(19)" />
+        </createTable>
+    </changeSet>
+
+    <changeSet id="3" author="oalieksienko" >
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="employer"
+                                 constraintName="fk_employer_user"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="id"
+                                 referencedTableName="user"/>
+    </changeSet>
+
+    <changeSet id="4" author="oalieksienko" >
+        <createTable tableName="worker">
+            <column name="id" autoIncrement="true" type="bigint(19)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="first_name" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_name" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="age" type="bigint(2)" />
+            <column name="tel" type="varchar(15)" />
+            <column name="email" type="varchar(30)" />
+            <column name="address" type="varchar(60)" />
+            <column name="city" type="varchar(20)" />
+            <column name="country" type="varchar(20)" />
+            <column name="description" type="varchar(5000)" />
+            <column name="user_id" type="bigint(19)" />
+        </createTable>
+    </changeSet>
+
+    <changeSet id="5" author="oalieksienko" >
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="worker"
+                                 constraintName="fk_worker_user"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="id"
+                                 referencedTableName="user"/>
+    </changeSet>
+    
+    <changeSet id="6" author="oalieksienko">
+        <createTable tableName="job">
+            <column name="id" autoIncrement="true" type="bigint(19)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="employer_id" type="bigint(19)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="varchar(5000)" />
+            <column name="status" type="varchar(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="posting_date" type="date" />
+            <column name="starting_date" type="date" />
+            <column name="end_date" type="date" />
+        </createTable>
+    </changeSet>
+
+    <changeSet id="7" author="oalieksienko" >
+        <addForeignKeyConstraint baseColumnNames="employer_id"
+                                 baseTableName="job"
+                                 constraintName="fk_job_employer"
+                                 referencedColumnNames="id"
+                                 referencedTableName="employer"/>
+    </changeSet>
+    
+    <changeSet id="8" author="oalieksienko" >
+        <createTable tableName="contract">
+            <column name="id" autoIncrement="true" type="bigint(19)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="job_id" type="bigint(19)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="worker_id" type="bigint(19)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="9" author="oalieksienko" >
+        <addForeignKeyConstraint baseColumnNames="job_id"
+                                 baseTableName="contract"
+                                 constraintName="fk_contract_job"
+                                 referencedColumnNames="id"
+                                 referencedTableName="job"/>
+    </changeSet>
+
+    <changeSet id="10" author="oalieksienko" >
+        <addForeignKeyConstraint baseColumnNames="worker_id"
+                                 baseTableName="contract"
+                                 constraintName="fk_contract_worker"
+                                 referencedColumnNames="id"
+                                 referencedTableName="worker"/>
+    </changeSet>
+
+    <changeSet id="11" author="oalieksienko" >
+        <createTable tableName="work_skill">
+            <column name="id" autoIncrement="true" type="bigint(19)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="worker_id" type="bigint(19)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="employer_id" type="bigint(19)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="job_id" type="bigint(19)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="skill" type="varchar(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="varchar(1000)" />
+        </createTable>
+    </changeSet>
+
+    <changeSet id="12" author="oalieksienko" >
+        <addForeignKeyConstraint baseColumnNames="worker_id"
+                                 baseTableName="work_skill"
+                                 constraintName="fk_workskill_worker"
+                                 referencedColumnNames="id"
+                                 referencedTableName="worker"/>
+    </changeSet>
+
+    <changeSet id="13" author="oalieksienko" >
+        <addForeignKeyConstraint baseColumnNames="employer_id"
+                                 baseTableName="work_skill"
+                                 constraintName="fk_workskill_employer"
+                                 referencedColumnNames="id"
+                                 referencedTableName="employer"/>
+    </changeSet>
+
+    <changeSet id="14" author="oalieksienko" >
+        <addForeignKeyConstraint baseColumnNames="job_id"
+                                 baseTableName="work_skill"
+                                 constraintName="fk_workskill_job"
+                                 referencedColumnNames="id"
+                                 referencedTableName="job"/>
+    </changeSet>
+
+    <changeSet id="15" author="oalieksienko" >
+        <createTable tableName="education">
+            <column name="id" autoIncrement="true" type="bigint(19)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="worker_id" type="bigint(19)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="university" type="varchar(60)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="speciality" type="varchar(60)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="16" author="oalieksienko" >
+        <addForeignKeyConstraint baseColumnNames="worker_id"
+                                 baseTableName="education"
+                                 constraintName="fk_education_worker"
+                                 referencedColumnNames="id"
+                                 referencedTableName="worker"/>
+    </changeSet>
+
+</databaseChangeLog>

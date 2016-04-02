@@ -10,10 +10,11 @@
                            http://www.springframework.org/schema/context
                            http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <context:component-scan base-package="com.eisgroup.hrcrm.dao"/>
+    <context:property-placeholder location="classpath*:META-INF/jdbc.properties"/>
+    <context:annotation-config/>
+    <context:component-scan base-package="oalex.uni.databases.dao"/>
 
-    <bean id="dataSource"
-          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="${app.jdbc.driverClassName}" />
         <property name="url" value="${app.jdbc.url}" />
         <property name="username" value="${app.jdbc.username}" />
@@ -26,5 +27,18 @@
           p:jpaVendorAdapter-ref="jpaVendorAdapter"
           p:persistenceUnitName="JPA-Hibernate"
           p:packagesToScan="oalex.uni.databases.model"/>
+
+    <bean id="liquibase" class="liquibase.integration.spring.SpringLiquibase">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="changeLog" value="classpath:/liquibase/schema.xml"/>
+    </bean>
+
+    <bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
+
+    <bean id="transactionManager"
+          class="org.springframework.orm.jpa.JpaTransactionManager"
+          p:entityManagerFactory-ref="entityManagerFactory"/>
+
+    <tx:annotation-driven mode="proxy" transaction-manager="transactionManager"/>
 
 </beans>
