@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<head>
+    <title>Login Page</title>
+</head>
+
+<body>
+    <h1>Login page.</h1>
+    <br />
+    <h:form style="test-align: left;">
+        <p:panelGrid style="width: 100%;margin: 0 auto" layout="tabular" styleClass="noBorder">
+            <p:row>
+                <p:column style="width: 10em;height: 3em">
+                    <h:outputLabel for="inputLogin" value="Login:"/>
+                </p:column>
+                <p:column style="width: 20em;">
+                    <p:inputText
+                            id="inputLogin"
+                            style="width: 100%">
+                    </p:inputText>
+                </p:column>
+                <p:column />
+            </p:row>
+            <p:row>
+                <p:column style="width: 10em;height: 3em">
+                    <h:outputLabel for="inputPassword" value="Password:"/>
+                </p:column>
+                <p:column style="width: 20em;">
+                    <p:password
+                            id="inputPassword"
+                            style="width: 100%">
+                    </p:password>
+                </p:column>
+                <p:column />
+            </p:row>
+            <p:row>
+                <p:column style="width: 10em;height: 3em">
+                    <p:commandButton
+                            id="loginButton"
+                            value="Login">
+                    </p:commandButton>
+                </p:column>
+                <p:column style="width: 20em;" />
+                <p:column />
+            </p:row>
+        </p:panelGrid>
+
+    </h:form>
+</body>
+
+</html>

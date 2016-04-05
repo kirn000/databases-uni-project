@@ -7,7 +7,7 @@
 
     <changeSet id="1" author="oalieksienko" >
         <createTable tableName="user">
-            <column name="id" autoIncrement="true" type="bigint(19)">
+            <column name="id" autoIncrement="true" type="bigint">
                 <constraints primaryKey="true"/>
             </column>
             <column name="login" type="varchar(40)">
@@ -24,7 +24,7 @@
 
     <changeSet id="2" author="oalieksienko" >
         <createTable tableName="employer">
-            <column name="id" autoIncrement="true" type="bigint(19)">
+            <column name="id" autoIncrement="true" type="bigint">
                 <constraints primaryKey="true"/>
             </column>
             <column name="name" type="varchar(40)">
@@ -39,7 +39,7 @@
             <column name="city" type="varchar(20)" />
             <column name="country" type="varchar(20)" />
             <column name="description" type="varchar(5000)" />
-            <column name="user_id" type="bigint(19)" />
+            <column name="user_id" type="bigint" />
         </createTable>
     </changeSet>
 
@@ -55,7 +55,7 @@
 
     <changeSet id="4" author="oalieksienko" >
         <createTable tableName="worker">
-            <column name="id" autoIncrement="true" type="bigint(19)">
+            <column name="id" autoIncrement="true" type="bigint">
                 <constraints primaryKey="true"/>
             </column>
             <column name="first_name" type="varchar(20)">
@@ -64,14 +64,14 @@
             <column name="last_name" type="varchar(20)">
                 <constraints nullable="false"/>
             </column>
-            <column name="age" type="bigint(2)" />
+            <column name="age" type="bigint" />
             <column name="tel" type="varchar(15)" />
             <column name="email" type="varchar(30)" />
             <column name="address" type="varchar(60)" />
             <column name="city" type="varchar(20)" />
             <column name="country" type="varchar(20)" />
             <column name="description" type="varchar(5000)" />
-            <column name="user_id" type="bigint(19)" />
+            <column name="user_id" type="bigint" />
         </createTable>
     </changeSet>
 
@@ -87,10 +87,10 @@
     
     <changeSet id="6" author="oalieksienko">
         <createTable tableName="job">
-            <column name="id" autoIncrement="true" type="bigint(19)">
+            <column name="id" autoIncrement="true" type="bigint">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="employer_id" type="bigint(19)">
+            <column name="employer_id" type="bigint">
                 <constraints nullable="false"/>
             </column>
             <column name="description" type="varchar(5000)" />
@@ -113,13 +113,13 @@
     
     <changeSet id="8" author="oalieksienko" >
         <createTable tableName="contract">
-            <column name="id" autoIncrement="true" type="bigint(19)">
+            <column name="id" autoIncrement="true" type="bigint">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="job_id" type="bigint(19)">
+            <column name="job_id" type="bigint">
                 <constraints nullable="false"/>
             </column>
-            <column name="worker_id" type="bigint(19)">
+            <column name="worker_id" type="bigint">
                 <constraints nullable="false"/>
             </column>
         </createTable>
@@ -143,18 +143,12 @@
 
     <changeSet id="11" author="oalieksienko" >
         <createTable tableName="work_skill">
-            <column name="id" autoIncrement="true" type="bigint(19)">
+            <column name="id" autoIncrement="true" type="bigint">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="worker_id" type="bigint(19)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="employer_id" type="bigint(19)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="job_id" type="bigint(19)">
-                <constraints nullable="false"/>
-            </column>
+            <column name="worker_id" type="bigint" />
+            <column name="employer_id" type="bigint" />
+            <column name="job_id" type="bigint" />
             <column name="skill" type="varchar(40)">
                 <constraints nullable="false"/>
             </column>
@@ -188,10 +182,10 @@
 
     <changeSet id="15" author="oalieksienko" >
         <createTable tableName="education">
-            <column name="id" autoIncrement="true" type="bigint(19)">
+            <column name="id" autoIncrement="true" type="bigint">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="worker_id" type="bigint(19)">
+            <column name="worker_id" type="bigint">
                 <constraints nullable="false"/>
             </column>
             <column name="university" type="varchar(60)">
@@ -209,6 +203,14 @@
                                  constraintName="fk_education_worker"
                                  referencedColumnNames="id"
                                  referencedTableName="worker"/>
+    </changeSet>
+
+    <changeSet id="17" author="oalieksienko" >
+        <insert tableName="user">
+            <column name="login" value="admin" />
+            <column name="password" value="admin" />
+            <column name="privilege" value="Admin" />
+        </insert>
     </changeSet>
 
 </databaseChangeLog>
