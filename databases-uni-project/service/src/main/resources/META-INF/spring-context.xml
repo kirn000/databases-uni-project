@@ -6,11 +6,7 @@
                            http://www.springframework.org/schema/context
                            http://www.springframework.org/schema/context/spring-context.xsd">
 
-
-    <import resource="classpath*:/META-INF/spring-context.xml"/>
-
-    <context:component-scan base-package="oalex.uni.databases"/>
-    <context:component-scan base-package="oalex.uni.databases.ui.beans"/>
-    <context:annotation-config />
-
+    <context:property-placeholder location="classpath*:META-INF/jdbc.properties"/>
+    <context:annotation-config/>
+    <context:component-scan base-package="oalex.uni.databases.dao"/>
 </beans>

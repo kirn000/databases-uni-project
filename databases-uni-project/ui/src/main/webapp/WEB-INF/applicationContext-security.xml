@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:sec="http://www.springframework.org/schema/security"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:beans="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security-3.2.xsd
+       http://www.springframework.org/schema/beans
+	   http://www.springframework.org/schema/beans/spring-beans.xsd
+	   http://www.springframework.org/schema/context
+	   http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+    <sec:global-method-security
+            pre-post-annotations="enabled"/>
+
+    <sec:http auto-config="true" use-expressions="true">
+        <sec:intercept-url pattern="/content/*" access="hasRole('ROLE_USER')"/>
+
+        <sec:form-login
+                login-processing-url="/j_spring_security_check"
+                login-page="/Login.xhtml"
+                authentication-failure-url="/LoginFail.xhtml"
+                default-target-url="/content/TestPage.xhtml" />
+    </sec:http>
+
+    <sec:authentication-manager alias="authenticationManager">
+        <sec:authentication-provider
+                user-service-ref="userService">
+        </sec:authentication-provider>
+    </sec:authentication-manager>
+
+    <bean id="userService" class="oalex.uni.databases.service.impl.UserServiceImpl"/>
+
+</beans>

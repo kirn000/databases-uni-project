@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
-@Entity
+@Entity(name="USERS")
 public class User extends BaseObject{
 
     @Column

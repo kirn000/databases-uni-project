@@ -1,9 +1,9 @@
 package oalex.uni.databases.model;
 
 public enum Privilege {
-    ADMIN("Admin"),
-    EMPLOYER("Employer"),
-    WORKER("Worker");
+    ADMIN("ADMIN"),
+    EMPLOYER("EMPLOYER"),
+    WORKER("WORKER");
 
     private final String name;
 
