@@ -21,7 +21,7 @@
                 login-processing-url="/j_spring_security_check"
                 login-page="/Login.xhtml"
                 authentication-failure-url="/LoginFail.xhtml"
-                default-target-url="/content/TestPage.xhtml" />
+                default-target-url="/content/StartingPage.xhtml" />
     </sec:http>
 
     <sec:authentication-manager alias="authenticationManager">

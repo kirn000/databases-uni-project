@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+    <title>Registration</title>
+</h:head>
+<h:body>
+
+    <h1>Employer Registration.</h1>
+    <br />
+    <br />
+
+    <h:form id="EmployerRegistrationForm">
+        <h:panelGrid id="panel" columns="3" border="0" cellpadding="0" cellspacing="2">
+
+            <h:outputLabel for="loginInput" value="Login:" />
+            <h:inputText id="loginInput" value="#{employerRegistrationBean.user.login}" required="true" />
+            <h:message errorStyle="color:red; display:block" for="loginInput" />
+
+            <h:outputLabel for="passwordInput" value="Password:" />
+            <h:inputText id="passwordInput" value="#{employerRegistrationBean.user.password}" required="true" />
+            <h:message errorStyle="color:red; display:block" for="passwordInput" />
+
+            <h:outputLabel for="companyNameInput" value="Company name:" />
+            <h:inputText id="companyNameInput" value="#{employerRegistrationBean.employer.name}" required="true" />
+            <h:message errorStyle="color:red; display:block" for="companyNameInput" />
+
+            <h:outputLabel for="contactPersonInput" value="Contact person:" />
+            <h:inputText id="contactPersonInput" value="#{employerRegistrationBean.employer.contactPerson}" required="true" />
+            <h:message errorStyle="color:red; display:block" for="contactPersonInput" />
+
+            <h:outputLabel for="telephoneInput" value="Telephone:" />
+            <h:inputText id="telephoneInput" value="#{employerRegistrationBean.employer.tel}" />
+            <h:message errorStyle="color:red; display:block" for="telephoneInput" />
+
+            <h:outputLabel for="emailInput" value="E-mail:" />
+            <h:inputText id="emailInput" value="#{employerRegistrationBean.employer.email}" />
+            <h:message errorStyle="color:red; display:block" for="emailInput" />
+
+            <h:outputLabel for="addressInput" value="Address:" />
+            <h:inputText id="addressInput" value="#{employerRegistrationBean.employer.address}" />
+            <h:message errorStyle="color:red; display:block" for="addressInput" />
+
+            <h:outputLabel for="cityInput" value="City:" />
+            <h:inputText id="cityInput" value="#{employerRegistrationBean.employer.city}" />
+            <h:message errorStyle="color:red; display:block" for="cityInput" />
+
+            <h:outputLabel for="countryInput" value="Country:" />
+            <h:inputText id="countryInput" value="#{employerRegistrationBean.employer.country}" />
+            <h:message errorStyle="color:red; display:block" for="countryInput" />
+
+        </h:panelGrid>
+        <br />
+        <h:outputLabel for="descriptionInput" value="Company Description:" />
+        <br />
+        <h:inputTextarea id="descriptionInput" value="#{employerRegistrationBean.employer.description}" />
+
+        <br/>
+        <br/>
+
+        <h:commandButton type="submit" id="refisterEmployer" action="#{employerRegistrationBean.register()}" value="Register Employer" />
+
+    </h:form>
+
+</h:body>
+</html>

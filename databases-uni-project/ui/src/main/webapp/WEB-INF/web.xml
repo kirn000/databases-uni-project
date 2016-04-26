@@ -19,7 +19,7 @@
   </servlet-mapping>
 
   <welcome-file-list>
-    <welcome-file>/content/TestPage.xhtml</welcome-file>
+    <welcome-file>EntryPage.xhtml</welcome-file>
   </welcome-file-list>
 
   <listener>

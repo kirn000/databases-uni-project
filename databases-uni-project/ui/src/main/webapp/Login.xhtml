@@ -13,17 +13,35 @@
     <h1>Login page.</h1>
     <br />
     <h:form id="LoginForm" style="test-align: left;" prependId="false">
-        <h:panelGroup>
-            Login: <h:inputText id="j_username" value="#{loginBean.username}" required="true" />
-        </h:panelGroup>
-        <br/>
-        <h:panelGroup>
-            Password: <h:inputText id="j_password" value="#{loginBean.password}" required="true" />
-        </h:panelGroup>
-        <br/><br/>
-        <h:panelGroup>
-            <h:commandButton type="submit" id="login" action="#{loginBean.loginProject}" value="Login" />
-        </h:panelGroup>
+        <table>
+            <tr>
+                <td>
+                    Login:
+                </td>
+                <td>
+                    <h:inputText id="j_username" value="#{loginBean.username}" required="true" />
+                </td>
+                <td>
+                    <h:message errorStyle="color:red; display:block" for="j_username" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Password:
+                </td>
+                <td>
+                    <h:inputText id="j_password" value="#{loginBean.password}" required="true" />
+                </td>
+                <td>
+                    <h:message errorStyle="color:red; display:block" for="j_password" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h:commandButton type="submit" id="login" action="#{loginBean.loginProject}" value="Login" />
+                </td>
+            </tr>
+        </table>
     </h:form>
 </h:body>
 

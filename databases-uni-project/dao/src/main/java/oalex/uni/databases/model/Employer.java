@@ -38,7 +38,8 @@ public class Employer extends BaseObject{
 
     public Employer() {}
 
-    public Employer(String contactPerson, String tel, String email, String address, String city, String country, String description, User user){
+    public Employer(String name, String contactPerson, String tel, String email, String address, String city, String country, String description, User user){
+        this.name = name;
         this.contactPerson = contactPerson;
         this.tel = tel;
         this.email = email;
