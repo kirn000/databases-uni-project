@@ -21,8 +21,8 @@ public class EmployerRegistrationBean {
     @ManagedProperty(value = "#{userService}")
     private UserService userService;
 
-    User user;
-    Employer employer;
+    private User user;
+    private Employer employer;
 
     @PostConstruct
     public void init(){

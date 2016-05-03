@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+    <title>Registration</title>
+</h:head>
+<h:body>
+
+    <h1>Worker Registration.</h1>
+    <br />
+    <br />
+
+    <h:form id="WorkerRegistrationForm">
+        <h:panelGrid id="panel" columns="3" border="0" cellpadding="0" cellspacing="2">
+
+            <h:outputLabel for="loginInput" value="Login:" />
+            <h:inputText id="loginInput" value="#{workerRegistrationBean.user.login}" required="true" />
+            <h:message errorStyle="color:red; display:block" for="loginInput" />
+
+            <h:outputLabel for="passwordInput" value="Password:" />
+            <h:inputText id="passwordInput" value="#{workerRegistrationBean.user.password}" required="true" />
+            <h:message errorStyle="color:red; display:block" for="passwordInput" />
+
+            <h:outputLabel for="firstNameInput" value="First name:" />
+            <h:inputText id="firstNameInput" value="#{workerRegistrationBean.worker.firstName}" required="true" />
+            <h:message errorStyle="color:red; display:block" for="firstNameInput" />
+
+            <h:outputLabel for="lastNameInput" value="Last name:" />
+            <h:inputText id="lastNameInput" value="#{workerRegistrationBean.worker.lastName}" required="true" />
+            <h:message errorStyle="color:red; display:block" for="lastNameInput" />
+
+            <h:outputLabel for="ageInput" value="Age:" />
+            <h:inputText id="ageInput" value="#{workerRegistrationBean.worker.age}" />
+            <h:message errorStyle="color:red; display:block" for="ageInput" />
+
+            <h:outputLabel for="telephoneInput" value="Telephone:" />
+            <h:inputText id="telephoneInput" value="#{workerRegistrationBean.worker.tel}" />
+            <h:message errorStyle="color:red; display:block" for="telephoneInput" />
+
+            <h:outputLabel for="emailInput" value="E-mail:" />
+            <h:inputText id="emailInput" value="#{workerRegistrationBean.worker.email}" />
+            <h:message errorStyle="color:red; display:block" for="emailInput" />
+
+            <h:outputLabel for="addressInput" value="Address:" />
+            <h:inputText id="addressInput" value="#{workerRegistrationBean.worker.address}" />
+            <h:message errorStyle="color:red; display:block" for="addressInput" />
+
+            <h:outputLabel for="cityInput" value="City:" />
+            <h:inputText id="cityInput" value="#{workerRegistrationBean.worker.city}" />
+            <h:message errorStyle="color:red; display:block" for="cityInput" />
+
+            <h:outputLabel for="countryInput" value="Country:" />
+            <h:inputText id="countryInput" value="#{workerRegistrationBean.worker.country}" />
+            <h:message errorStyle="color:red; display:block" for="countryInput" />
+
+            <h:outputLabel for="universityInput" value="University:" />
+            <h:inputText id="universityInput" value="#{workerRegistrationBean.education.university}" />
+            <h:message errorStyle="color:red; display:block" for="universityInput" />
+
+            <h:outputLabel for="specialityInput" value="Speciality:" />
+            <h:inputText id="specialityInput" value="#{workerRegistrationBean.education.speciality}" />
+            <h:message errorStyle="color:red; display:block" for="specialityInput" />
+
+        </h:panelGrid>
+        <br />
+        <h:outputLabel for="descriptionInput" value="Your description:" />
+        <br />
+        <h:inputTextarea id="descriptionInput" value="#{workerRegistrationBean.worker.description}" />
+
+        <br/>
+        <br/>
+
+        <h:commandButton type="submit" id="registerWorker" action="#{workerRegistrationBean.register()}" value="Register Worker" />
+
+    </h:form>
+
+</h:body>
+</html>
