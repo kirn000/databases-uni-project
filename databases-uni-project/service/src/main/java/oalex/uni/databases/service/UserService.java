@@ -10,5 +10,4 @@ public interface UserService {
     User find(long id);
 
     User findUserByLogin(String login);
-    User findUserByEmail(String email);
 }

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>New job</title>
+</h:head>
+<h:body>
+
+    <h1>New job posting.</h1>
+    <br />
+    <br />
+
+    <h:form id="EmployerRegistrationForm">
+        <h:panelGrid id="panel" columns="3" border="0" cellpadding="0" cellspacing="2">
+
+            <h:outputLabel for="jobDescriptionInput" value="Job description:" />
+            <h:inputText id="jobDescriptionInput" value="#{postingJobBean.job.description}" required="true" />
+            <h:message errorStyle="color:red; display:block" for="jobDescriptionInput" />
+
+            <h:outputLabel for="startingDateCalendar" value="Starting date:" />
+            <p:calendar id="startingDateCalendar" value="#{postingJobBean.job.startingDate}" mindate="#{postingJobBean.currentDate}" required="true"/>
+            <h:message errorStyle="color:red; display:block" for="startingDateCalendar" />
+
+            <h:outputLabel for="endDateCalendar" value="End date:" />
+            <p:calendar id="endDateCalendar" value="#{postingJobBean.job.endDate}" mindate="#{postingJobBean.currentDate}" required="true"/>
+            <h:message errorStyle="color:red; display:block" for="endDateCalendar" />
+
+            <h:outputLabel for="workSkillInput" value="Work skill:" />
+            <h:inputText id="workSkillInput" value="#{postingJobBean.workSkill.skill}" required="true"/>
+            <h:message errorStyle="color:red; display:block" for="workSkillInput" />
+
+        </h:panelGrid>
+        <br />
+        <h:outputLabel for="workSkillDescriptionInput" value="Skill Description:" />
+        <br />
+        <h:inputTextarea id="workSkillDescriptionInput" value="#{postingJobBean.workSkill.description}" required="true"/>
+
+        <br/>
+        <br/>
+
+        <h:commandButton type="submit" id="postJob" action="#{postingJobBean.postJob()}" value="Post Job" />
+
+    </h:form>
+
+</h:body>
+</html>

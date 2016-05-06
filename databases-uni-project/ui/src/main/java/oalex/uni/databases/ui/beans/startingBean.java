@@ -1,5 +1,6 @@
 package oalex.uni.databases.ui.beans;
 
+import oalex.uni.databases.model.Privilege;
 import oalex.uni.databases.model.User;
 import oalex.uni.databases.service.UserService;
 import org.springframework.security.core.Authentication;
@@ -19,6 +20,7 @@ public class StartingBean implements Serializable {
     private UserService userService;
 
     private User user;
+    private boolean employerPrivilege;
 
     @PostConstruct
     public void init(){
@@ -27,6 +29,11 @@ public class StartingBean implements Serializable {
 
         setUser(userService.findUserByLogin(auth.getName()));
 
+        employerPrivilege = user.getPrivilege().equals(Privilege.EMPLOYER);
+    }
+
+    public boolean isEmployerPrivilege() {
+        return employerPrivilege;
     }
 
     public User getUser() {

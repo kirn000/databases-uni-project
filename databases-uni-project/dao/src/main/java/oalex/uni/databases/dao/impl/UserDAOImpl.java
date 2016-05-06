@@ -15,16 +15,6 @@ public class UserDAOImpl extends BaseObjectDAOImpl<User> implements UserDAO {
         super(User.class);
     }
 
-    public User findUserByEmail(String email) {
-        Query query = entityManager.createQuery("select user from USERS user where (LOWER(user.email) = :email)");
-        query.setParameter("email", email.toLowerCase());
-        try {
-            return (User) query.getSingleResult();
-        } catch (NoResultException e) {
-            return null;
-        }
-    }
-
     public User findUserByLogin(String login) {
         Query query = entityManager.createQuery("select user from USERS user where (LOWER(user.login) = :login)");
         query.setParameter("login", login.toLowerCase());

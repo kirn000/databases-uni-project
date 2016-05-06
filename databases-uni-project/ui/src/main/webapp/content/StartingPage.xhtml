@@ -12,6 +12,11 @@
 <h:body>
     <h:form>
         Welcome, <h:outputLabel value="#{startingBean.user.login}"/>.
+
+        <br/>
+        <br/>
+
+        <h:commandLink value="Post new job." action="PostingJob" rendered="#{startingBean.employerPrivilege}"/>
     </h:form>
 </h:body>
 

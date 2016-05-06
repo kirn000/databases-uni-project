@@ -31,4 +31,9 @@ public class EmployerServiceImpl implements EmployerService {
     public Employer find(long id) {
         return employerDAO.find(id);
     }
+
+    @Override
+    public Employer findEmployerByUserId(long userId) {
+        return employerDAO.findEmployerByUserId(userId);
+    }
 }

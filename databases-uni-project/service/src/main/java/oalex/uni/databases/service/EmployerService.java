@@ -7,4 +7,5 @@ public interface EmployerService {
     void update(Employer employer);
     void delete(Employer employer);
     Employer find(long id);
+    Employer findEmployerByUserId(long userId);
 }
