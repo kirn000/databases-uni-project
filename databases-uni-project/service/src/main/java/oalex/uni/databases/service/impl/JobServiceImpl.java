@@ -6,6 +6,8 @@ import oalex.uni.databases.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service("jobService")
 public class JobServiceImpl implements JobService {
 
@@ -30,5 +32,10 @@ public class JobServiceImpl implements JobService {
     @Override
     public Job find(long id) {
         return jobDAO.find(id);
+    }
+
+    @Override
+    public List<Job> getAllJobs() {
+        return jobDAO.getAll();
     }
 }

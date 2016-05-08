@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+    <title>Edit profile</title>
+</h:head>
+<h:body>
+
+    <h1>
+        <h:outputLabel value="#{editWorkerBean.user.login}"/> edit.
+    </h1>
+    <br />
+    <br />
+
+    <h:form id="WorkerEditForm">
+        <h:panelGrid id="panel" columns="3" border="0" cellpadding="0" cellspacing="2">
+
+            <h:outputLabel for="passwordInput" value="Password:" />
+            <h:inputText id="passwordInput" value="#{editWorkerBean.user.password}" required="true" />
+            <h:message errorStyle="color:red; display:block" for="passwordInput" />
+
+            <h:outputLabel for="firstNameInput" value="First name:" />
+            <h:inputText id="firstNameInput" value="#{editWorkerBean.worker.firstName}" required="true" />
+            <h:message errorStyle="color:red; display:block" for="firstNameInput" />
+
+            <h:outputLabel for="lastNameInput" value="Last name:" />
+            <h:inputText id="lastNameInput" value="#{editWorkerBean.worker.lastName}" required="true" />
+            <h:message errorStyle="color:red; display:block" for="lastNameInput" />
+
+            <h:outputLabel for="ageInput" value="Age:" />
+            <h:inputText id="ageInput" value="#{editWorkerBean.worker.age}" />
+            <h:message errorStyle="color:red; display:block" for="ageInput" />
+
+            <h:outputLabel for="telephoneInput" value="Telephone:" />
+            <h:inputText id="telephoneInput" value="#{editWorkerBean.worker.tel}" />
+            <h:message errorStyle="color:red; display:block" for="telephoneInput" />
+
+            <h:outputLabel for="emailInput" value="E-mail:" />
+            <h:inputText id="emailInput" value="#{editWorkerBean.worker.email}" />
+            <h:message errorStyle="color:red; display:block" for="emailInput" />
+
+            <h:outputLabel for="addressInput" value="Address:" />
+            <h:inputText id="addressInput" value="#{editWorkerBean.worker.address}" />
+            <h:message errorStyle="color:red; display:block" for="addressInput" />
+
+            <h:outputLabel for="cityInput" value="City:" />
+            <h:inputText id="cityInput" value="#{editWorkerBean.worker.city}" />
+            <h:message errorStyle="color:red; display:block" for="cityInput" />
+
+            <h:outputLabel for="countryInput" value="Country:" />
+            <h:inputText id="countryInput" value="#{editWorkerBean.worker.country}" />
+            <h:message errorStyle="color:red; display:block" for="countryInput" />
+
+            <h:outputLabel for="universityInput" value="University:" />
+            <h:inputText id="universityInput" value="#{editWorkerBean.education.university}" />
+            <h:message errorStyle="color:red; display:block" for="universityInput" />
+
+            <h:outputLabel for="specialityInput" value="Speciality:" />
+            <h:inputText id="specialityInput" value="#{editWorkerBean.education.speciality}" />
+            <h:message errorStyle="color:red; display:block" for="specialityInput" />
+
+        </h:panelGrid>
+        <br />
+        <h:outputLabel for="descriptionInput" value="Your description:" />
+        <br />
+        <h:inputTextarea id="descriptionInput" value="#{editWorkerBean.worker.description}" />
+
+        <br/>
+        <br/>
+
+        <h:commandButton type="submit" id="editWorker" action="#{editWorkerBean.edit()}" value="Save changes" />
+
+    </h:form>
+
+</h:body>
+</html>

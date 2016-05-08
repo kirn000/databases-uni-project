@@ -7,4 +7,5 @@ public interface EducationService {
     void update(Education education);
     void delete(Education education);
     Education find(long id);
+    Education findEducationByWorkerId(long workerId);
 }

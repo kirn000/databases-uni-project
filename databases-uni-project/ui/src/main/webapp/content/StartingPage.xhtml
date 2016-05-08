@@ -14,9 +14,13 @@
         Welcome, <h:outputLabel value="#{startingBean.user.login}"/>.
 
         <br/>
+        <h:commandLink value="Edit your profile." action="EditEmployer" rendered="#{startingBean.employerPrivilege}"/>
+        <h:commandLink value="Edit your profile." action="EditWorker" rendered="#{startingBean.workerPrivilege}"/>
         <br/>
-
         <h:commandLink value="Post new job." action="PostingJob" rendered="#{startingBean.employerPrivilege}"/>
+        <br/>
+        <h:commandLink value="Job list." action="JobList"/>
+        <br/>
     </h:form>
 </h:body>
 

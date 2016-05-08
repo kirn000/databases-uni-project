@@ -31,4 +31,9 @@ public class EducationServiceImpl implements EducationService {
     public Education find(long id) {
         return educationDAO.find(id);
     }
+
+    @Override
+    public Education findEducationByWorkerId(long workerId) {
+        return educationDAO.findEducationByWorkerId(workerId);
+    }
 }

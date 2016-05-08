@@ -31,4 +31,9 @@ public class WorkerServiceImpl implements WorkerService {
     public Worker find(long id) {
         return workerDAO.find(id);
     }
+
+    @Override
+    public Worker findWorkerByUserId(long userId) {
+        return workerDAO.findWorkerByUserId(userId);
+    }
 }

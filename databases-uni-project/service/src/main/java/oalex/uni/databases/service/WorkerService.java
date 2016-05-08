@@ -7,4 +7,5 @@ public interface WorkerService {
     void update(Worker worker);
     void delete(Worker worker);
     Worker find(long id);
+    Worker findWorkerByUserId(long userId);
 }

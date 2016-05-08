@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
-@Entity
+@Entity(name="WORKER")
 public class Worker extends BaseObject{
 
     @Column(name = "first_name")
