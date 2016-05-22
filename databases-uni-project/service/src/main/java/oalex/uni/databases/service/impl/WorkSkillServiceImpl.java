@@ -31,4 +31,9 @@ public class WorkSkillServiceImpl implements WorkSkillService {
     public WorkSkill find(long id) {
         return workSkillDAO.find(id);
     }
+
+    @Override
+    public WorkSkill findWorkSkillForJob(long employerId, long jobId) {
+        return workSkillDAO.findWorkSkillForJob(employerId, jobId);
+    }
 }

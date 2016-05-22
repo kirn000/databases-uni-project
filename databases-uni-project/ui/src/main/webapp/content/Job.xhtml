@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Job</title>
+    <f:metadata>
+        <f:viewParam name="id"/>
+    </f:metadata>
+</h:head>
+
+<h:body>
+    <h:form>
+        <h2>
+            <h:outputLabel value="Job #{jobBean.job.id}"/>.
+        </h2>
+        <br/>
+        <h:outputLabel value="Employer: #{jobBean.job.employer.name}" />
+        <br/>
+        <h:outputLabel value="Description: #{jobBean.job.description}" />
+        <br/>
+        <h:outputLabel value="Status: #{jobBean.job.status}" />
+        <br/>
+        <h:outputLabel value="Work Skill: #{jobBean.workSkill.skill}" />
+        <br/>
+        <h:outputLabel value="Work Skill Description: #{jobBean.workSkill.description}" />
+        <br/>
+        <h:outputLabel value="Posting Date: #{jobBean.job.postingDate}" />
+        <br/>
+        <h:outputLabel value="Starting Date: #{jobBean.job.startingDate}" />
+        <br/>
+        <h:outputLabel value="End Date: #{jobBean.job.endDate}" />
+        <br/>
+        <h:commandLink value="Return to job list." action="JobList"/>
+    </h:form>
+</h:body>
+
+</html>

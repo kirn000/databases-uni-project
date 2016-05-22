@@ -7,4 +7,5 @@ public interface WorkSkillService {
     void update(WorkSkill workSkill);
     void delete(WorkSkill workSkill);
     WorkSkill find(long id);
+    WorkSkill findWorkSkillForJob(long employerId, long jobId);
 }
