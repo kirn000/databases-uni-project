@@ -6,6 +6,8 @@ import oalex.uni.databases.service.WorkerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service("workerService")
 public class WorkerServiceImpl implements WorkerService {
 
@@ -35,5 +37,10 @@ public class WorkerServiceImpl implements WorkerService {
     @Override
     public Worker findWorkerByUserId(long userId) {
         return workerDAO.findWorkerByUserId(userId);
+    }
+
+    @Override
+    public List<Worker> findWorkersListForJob(long jobId) {
+        return workerDAO.findWorkersListForJob(jobId);
     }
 }

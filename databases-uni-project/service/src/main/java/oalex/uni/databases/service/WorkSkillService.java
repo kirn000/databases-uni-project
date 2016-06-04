@@ -8,4 +8,5 @@ public interface WorkSkillService {
     void delete(WorkSkill workSkill);
     WorkSkill find(long id);
     WorkSkill findWorkSkillForJob(long employerId, long jobId);
+    WorkSkill findWorkSkillWithAllIds(long workerId, long employerId, long jobId);
 }

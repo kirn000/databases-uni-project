@@ -1,10 +1,8 @@
 package oalex.uni.databases.model;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
-@Entity
+@Entity(name="CONTRACT")
 public class Contract extends BaseObject {
 
     @ManyToOne
@@ -15,11 +13,16 @@ public class Contract extends BaseObject {
     @JoinColumn(name = "worker_id")
     private Worker worker;
 
+    @Column(name="contract_status")
+    @Enumerated(EnumType.STRING)
+    private ContractStatus contractStatus;
+
     public Contract() {}
 
-    public Contract(Job job, Worker worker){
+    public Contract(Job job, Worker worker, ContractStatus contractStatus){
         this.job = job;
         this.worker = worker;
+        this.contractStatus = contractStatus;
     }
 
     //Getters and setters ----------------------------------------------------------
@@ -39,5 +42,13 @@ public class Contract extends BaseObject {
 
     public void setWorker(Worker worker) {
         this.worker = worker;
+    }
+
+    public ContractStatus getContractStatus() {
+        return contractStatus;
+    }
+
+    public void setContractStatus(ContractStatus contractStatus) {
+        this.contractStatus = contractStatus;
     }
 }

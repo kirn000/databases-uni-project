@@ -26,4 +26,17 @@ public class WorkSkillDAOImpl extends BaseObjectDAOImpl<WorkSkill> implements Wo
             return null;
         }
     }
+
+    @Override
+    public WorkSkill findWorkSkillWithAllIds(long workerId, long employerId, long jobId) {
+        Query query = entityManager.createQuery("select ws from WORK_SKILL ws where (ws.employer.id = :employer_id) and (ws.job.id = :job_id) and (ws.worker.id is :worker_id)");
+        query.setParameter("employer_id", employerId);
+        query.setParameter("job_id", jobId);
+        query.setParameter("worker_id", workerId);
+        try {
+            return (WorkSkill) query.getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
 }

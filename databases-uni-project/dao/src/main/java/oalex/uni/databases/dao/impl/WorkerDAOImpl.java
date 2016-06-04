@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
+import java.util.List;
 
 @Repository(value = "workerDAO")
 @Transactional
@@ -20,6 +21,16 @@ public class WorkerDAOImpl extends BaseObjectDAOImpl<Worker> implements WorkerDA
         query.setParameter("user_id", UserId);
         try {
             return (Worker) query.getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
+
+    public List<Worker> findWorkersListForJob(long jobId){
+        Query query = entityManager.createQuery("select w from WORKER w where (w.id in (select c.worker.id from CONTRACT c where (c.job.id = :job_id)))");
+        query.setParameter("job_id", jobId);
+        try {
+            return (List<Worker>) query.getResultList();
         } catch (NoResultException e) {
             return null;
         }

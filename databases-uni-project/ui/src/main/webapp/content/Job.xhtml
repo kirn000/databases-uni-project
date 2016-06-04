@@ -36,7 +36,36 @@
         <br/>
         <h:outputLabel value="End Date: #{jobBean.job.endDate}" />
         <br/>
+        <h:commandButton type="submit" action="#{jobBean.applyForJob()}" value="Apply for this job" rendered="#{jobBean.availableToApply}"/>
+        <br/>
         <h:commandLink value="Return to job list." action="JobList"/>
+
+
+    Applicants:
+    <h:dataTable value="#{jobBean.applicantsList}" var="worker" border="1">
+        <h:column>
+            <f:facet name="header">#</f:facet>
+            <p:link href="/content/Worker.xhtml?id=#{worker.id}" ajax="false" value="#{worker.id}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">First Name</f:facet>
+            #{worker.firstName}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Last Name</f:facet>
+            #{worker.lastName}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Description</f:facet>
+            #{worker.description}
+        </h:column>
+        <h:column rendered="#{jobBean.ownerOfJob}">
+            <f:facet name="header">Accept?</f:facet>
+            <h:commandButton value="Accept" action="#{jobBean.acceptApplication}">
+                <f:param name="workerNumber" value="#{worker.id}" />
+            </h:commandButton>
+        </h:column>
+    </h:dataTable>
     </h:form>
 </h:body>
 

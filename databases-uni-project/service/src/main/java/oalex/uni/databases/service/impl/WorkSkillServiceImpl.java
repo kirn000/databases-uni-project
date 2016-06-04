@@ -14,7 +14,9 @@ public class WorkSkillServiceImpl implements WorkSkillService {
 
     @Override
     public void create(WorkSkill workSkill) {
-        workSkillDAO.create(workSkill);
+        if (workSkillDAO.findWorkSkillWithAllIds(workSkill.getWorker().getId(), workSkill.getEmployer().getId(), workSkill.getJob().getId()) == null){
+            workSkillDAO.create(workSkill);
+        }
     }
 
     @Override
@@ -35,5 +37,10 @@ public class WorkSkillServiceImpl implements WorkSkillService {
     @Override
     public WorkSkill findWorkSkillForJob(long employerId, long jobId) {
         return workSkillDAO.findWorkSkillForJob(employerId, jobId);
+    }
+
+    @Override
+    public WorkSkill findWorkSkillWithAllIds(long workerId, long employerId, long jobId) {
+        return workSkillDAO.findWorkSkillWithAllIds(workerId, employerId, jobId);
     }
 }
