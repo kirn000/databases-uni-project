@@ -11,4 +11,5 @@ public interface WorkerService {
     Worker find(long id);
     Worker findWorkerByUserId(long userId);
     List<Worker> findWorkersListForJob (long jobId);
+    List<Worker> getAllWorkers();
 }

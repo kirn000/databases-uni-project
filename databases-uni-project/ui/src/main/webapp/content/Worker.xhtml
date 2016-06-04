@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Worker</title>
+    <f:metadata>
+        <f:viewParam name="id"/>
+    </f:metadata>
+</h:head>
+<h:body>
+    <h:form>
+        <h2>
+            <h:outputLabel value="#{workerBean.worker.id}"/>.
+        </h2>
+        <br/>
+        <h:outputLabel value="First name: #{workerBean.worker.firstName}" />
+        <br/>
+        <h:outputLabel value="Last name: #{workerBean.worker.lastName}" />
+        <br/>
+        <h:outputLabel value="Age: #{workerBean.worker.age}" />
+        <br/>
+        <h:outputLabel value="Tel: #{workerBean.worker.tel}" />
+        <br/>
+        <h:outputLabel value="Email: #{workerBean.worker.email}" />
+        <br/>
+        <h:outputLabel value="Address: #{workerBean.worker.address}" />
+        <br/>
+        <h:outputLabel value="City: #{workerBean.worker.city}" />
+        <br/>
+        <h:outputLabel value="Country: #{workerBean.worker.country}" />
+        <br/>
+        Description:
+        <h:outputLabel value="#{workerBean.worker.description}" />
+        <br/>
+        Education:
+        <h:outputLabel value="University: #{workerBean.education.university}" />
+        <br/>
+        <h:outputLabel value="Speciality: #{workerBean.education.speciality}" />
+        <br/>
+        Work skills:
+        <h:dataTable value="#{workerBean.workSkills}" var="skill" border="1">
+            <h:column>
+                <f:facet name="header">Skill Name:</f:facet>
+                #{skill.skill}
+            </h:column>
+        </h:dataTable>
+        <br/>
+        <h:commandLink value="Return to starting page." action="StartingPage"/>
+    </h:form>
+</h:body>
+</html>

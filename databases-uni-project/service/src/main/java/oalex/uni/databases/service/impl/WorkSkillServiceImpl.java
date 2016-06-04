@@ -6,6 +6,8 @@ import oalex.uni.databases.service.WorkSkillService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service("workSkillService")
 public class WorkSkillServiceImpl implements WorkSkillService {
 
@@ -42,5 +44,10 @@ public class WorkSkillServiceImpl implements WorkSkillService {
     @Override
     public WorkSkill findWorkSkillWithAllIds(long workerId, long employerId, long jobId) {
         return workSkillDAO.findWorkSkillWithAllIds(workerId, employerId, jobId);
+    }
+
+    @Override
+    public List<WorkSkill> getAllWorkerSkills(long workerId) {
+        return workSkillDAO.getAllWorkerSkills(workerId);
     }
 }

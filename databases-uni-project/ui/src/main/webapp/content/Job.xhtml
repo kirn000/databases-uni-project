@@ -20,7 +20,7 @@
             <h:outputLabel value="Job #{jobBean.job.id}"/>.
         </h2>
         <br/>
-        <h:outputLabel value="Employer: #{jobBean.job.employer.name}" />
+        <p:link href="/content/Employer.xhtml?id=#{jobBean.job.employer.id}" ajax="false" value="Employer: #{jobBean.job.employer.name}"/>
         <br/>
         <h:outputLabel value="Description: #{jobBean.job.description}" />
         <br/>

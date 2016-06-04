@@ -43,4 +43,9 @@ public class WorkerServiceImpl implements WorkerService {
     public List<Worker> findWorkersListForJob(long jobId) {
         return workerDAO.findWorkersListForJob(jobId);
     }
+
+    @Override
+    public List<Worker> getAllWorkers() {
+        return workerDAO.getAll();
+    }
 }
