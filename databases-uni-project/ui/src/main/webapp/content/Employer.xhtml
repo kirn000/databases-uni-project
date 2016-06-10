@@ -37,5 +37,34 @@
         <br/>
         <h:commandLink value="Return to starting page." action="StartingPage"/>
     </h:form>
+    <br/>
+    <br/>
+    <h:form rendered="#{!employerBean.owner}">
+        <h:outputLabel for="commentInput" value="Your commentary:" />
+        <br />
+        <h:inputTextarea id="commentInput" value="#{employerBean.commentary.text}" />
+        <br/>
+        <h:commandButton type="submit" id="addCommentary" action="#{employerBean.addComment()}" value="Add Commentary" />
+    </h:form>
+    <h:form>
+        <h2>
+            <h:outputLabel value="Comments:"/>.
+        </h2>
+        <h:dataTable value="#{employerBean.comments}" var="comment" border="1">
+            <h:column>
+                <f:facet name="header">Author:</f:facet>
+                #{comment.author}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Date:</f:facet>
+                #{comment.commentDate}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Text:</f:facet>
+                #{comment.text}
+            </h:column>
+        </h:dataTable>
+
+    </h:form>
 </h:body>
 </html>

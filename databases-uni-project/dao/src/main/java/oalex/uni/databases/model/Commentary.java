@@ -3,7 +3,7 @@ package oalex.uni.databases.model;
 import javax.persistence.*;
 import java.util.Date;
 
-@Entity
+@Entity(name="COMMENTARY")
 public class Commentary extends BaseObject {
 
     @ManyToOne

@@ -216,4 +216,17 @@
         </addColumn>
     </changeSet>
 
+    <changeSet id="19" author="oalieksienko">
+        <createTable tableName="commentary">
+            <column name="id" autoIncrement="true" type="bigint">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="employer_id" type="bigint" />
+            <column name="worker_id" type="bigint" />
+            <column name="author" type="varchar(40)" />
+            <column name="text" type="varchar(5000)" />
+            <column name="comment_date" type="date" />
+        </createTable>
+    </changeSet>
+
 </databaseChangeLog>
