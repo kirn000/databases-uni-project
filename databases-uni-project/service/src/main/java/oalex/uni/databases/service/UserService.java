@@ -8,6 +8,5 @@ public interface UserService {
     void update(User user);
     void delete(User user);
     User find(long id);
-
     User findUserByLogin(String login);
 }

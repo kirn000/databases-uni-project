@@ -16,7 +16,7 @@ public class WorkSkillServiceImpl implements WorkSkillService {
 
     @Override
     public void create(WorkSkill workSkill) {
-        if (workSkillDAO.findWorkSkillWithAllIds(workSkill.getWorker().getId(), workSkill.getEmployer().getId(), workSkill.getJob().getId()) == null){
+        if (workSkill.getWorker() == null || workSkillDAO.findWorkSkillWithAllIds(workSkill.getWorker().getId(), workSkill.getEmployer().getId(), workSkill.getJob().getId()) == null){
             workSkillDAO.create(workSkill);
         }
     }
